@@ -36,12 +36,11 @@ function onGalleryWrapperClick(event) {
   const template = `<img src="${originalImgLink}" width="800" height="600">`;
   const modalOptions = {
     onClose: () => window.removeEventListener("keydown", onModalclose),
+    onShow: () => window.addEventListener("keydown", onModalclose),
   };
 
   modal = basicLightbox.create(template, modalOptions);
   modal.show();
-
-  window.addEventListener("keydown", onModalclose);
 }
 
 function onModalclose(event) {
